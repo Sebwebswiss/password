@@ -1,143 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Password</title>
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 17px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>pass</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      font-size: 17px;
+    }
 
-body {
-  display: flex;
-  background-color: rgb(255, 235, 218);
-  justify-content: center;
-  height: 100vh;
-  align-items: center;
-}
+    body {
+      display: flex;
+      background-color: rgb(255, 235, 218);
+      justify-content: center;
+      height: 100vh;
+      align-items: center;
+      background-image: linear-gradient(#e7daca, #b1e0ff);
+    }
 
-section {
-  display: flex;
-  max-width: 380px;
-  /* border: 1px solid red; */
-  text-align: center;
-  height: 80vh;
-  align-items: end;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: rgb(253, 242, 231);
-}
+    section {
+      display: flex;
+      max-width: 380px;
+      /* border: 1px solid red; */
+      text-align: center;
+      height: 90vh;
+      align-items: end;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: rgb(253, 242, 231);
+      border-radius: 5%;
+    }
 
-h1 {
-  margin-bottom: 100px;
-  font-size: xx-large;
-}
+    h1 {
+      margin-bottom: 100px;
+      font-size: xx-large;
+    }
 
-input {
-  text-align: center;
-  width: 40px;
-  margin-bottom: 50px;
-}
+    input {
+      text-align: center;
+      width: 40px;
+      margin-bottom: 50px;
 
-button {
-  padding: 6px;
-  margin-bottom: 20px;
-  background-color: rgb(159 238 231);
-border: solid 1px #4da992;
-}
+    }
 
-#demo2 {
-  margin-top: 20px;
-  font-size: 25px;
-}
+    button {
+      padding: 6px;
+      margin-bottom: 20px;
+      background-color: rgb(159 238 231);
+      border: solid 1px #4da992;
+    }
 
-.power {
-  align-content: space-between;
-}
+    #demo2 {
+      margin-top: 20px;
+      font-size: 25px;
+    }
 
-.last {
-  font-size: xx-small;
-}
+    .power {
+      align-content: space-between;
+    }
 
-
-</style>
+    .last {
+      font-size: xx-small;
+    }
+  </style>
 </head>
+
 <body>
 
-    <section>
-<div>
-    <h1>Strong password marker </h1> 
-    <p>Password length: </p>
+  <section>
+    <div>
+      <h1>Strong password marker </h1>
+      <p>Password length: </p>
+      <input type="number" name="izaberi boj karaktera!" id="num" min="4" max="12" value="8">
+      <br>
+      <button onclick="myFunction()">Generate</button>
+      <p id="demo2">Your password</p>
+    </div>
+    <div class="power">
+      <p class="last">Powered by Sebweb</p>
+    </div>
+  </section>
 
+  <script>
 
-<input type="number" name="izaberi boj karaktera!" id="num" min="4" max="10" value="8"> 
-<br>
-    <button onclick="myFunction()">Generate</button>
+    function generirajLozinku(pLength) {
 
+      var keyListAlpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789",
+        password = '@';
+      var len = pLength - 1;
 
+      for (i = 0; i < len; i++) {
+        password += keyListAlpha.charAt(Math.floor(Math.random() * keyListAlpha.length));
+      }
+      password = password.split('').sort(function () {
+        return 0.5 - Math.random()
+      }).join('');
+      return password;
+    }
 
+    function myFunction() {
+      var x = document.getElementById("num").value;
+      document.getElementById("demo2").innerText = generirajLozinku(x);
+    }
 
-    <p id="demo2">Your password</p>
-
-
-</div>
-<div class="power">
-    <p class="last">Powered by Sebweb</p>
-</div>
-
-
-
-    </section>
-
-<script>
-
-function generirajLozinku(pLength) {
-
-var keyListAlpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789",
-  password = '@';
-var len = pLength - 1;
-
-for (i = 0; i < len; i++) {
-  password += keyListAlpha.charAt(Math.floor(Math.random() * keyListAlpha.length));
-
-}
-
-password = password.split('').sort(function() {
-  return 0.5 - Math.random()
-}).join('');
-
-return password;
-
-
-}
-
-function myFunction() {
-var x = document.getElementById("num").value;
-
-document.getElementById("demo2").innerText = generirajLozinku(x);
-}
-
-
-
-
-function myFunction(){
-  var x = document.getElementById("num").value;
-  
-  document.getElementById("demo2").innerText = generirajLozinku(x);
-  
-  console.log(x);
-}
-
-
-
-</script>
+    function myFunction() {
+      var x = document.getElementById("num").value;
+      document.getElementById("demo2").innerText = generirajLozinku(x);
+      console.log(x);
+    }
+  </script>
 
 </body>
+
 </html>
