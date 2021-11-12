@@ -15,7 +15,7 @@
 
     }
 
-    body {
+    .section-one {
       display: flex;
       background-color: rgb(255, 235, 218);
       justify-content: center;
@@ -24,7 +24,7 @@
       background-image: linear-gradient(#ff6bfa, #b1e0ff);
     }
 
-    section {
+    .section-two {
       display: flex;
       max-width: 380px;
       /* border: 1px solid red; */
@@ -80,12 +80,21 @@
 font-size: 25px;
       margin-bottom: 15px;
     }
+
+    @media only screen and (max-height: 600px) {
+  .section-one {
+ height: auto;
+  }
+  .section-two{
+    height:auto;
+  }
+}
   </style>
 </head>
 
-<body>
+<body class="section-one">
 
-  <section>
+  <section class="section-two">
     <div>
       <h1>Strong password marker </h1>
       <p class="length">Password length: </p>
