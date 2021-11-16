@@ -131,10 +131,17 @@
       document.getElementById("demo2").innerText = generirajLozinku(x);
     }
 
-    function myFunction() {
+ function myFunction() {
+      
       var x = document.getElementById("num").value;
-      document.getElementById("demo2").innerText = generirajLozinku(x);
+      if(x > 20){
+        alert('Maximum number of password length is 20');
+      }
+      else{
+        document.getElementById("demo2").innerText = generirajLozinku(x);
       console.log(x);
+      }
+     
     }
   </script>
 
