@@ -32,7 +32,7 @@
       height: 80vh;
       align-items: end;
       flex-direction: column;
-      justify-content: space-between;
+      /* justify-content: space-between; */
       padding: 20px;
       background-color: rgb(253, 242, 231);
       border-radius: 10px;
@@ -40,14 +40,14 @@
     }
 
     h1 {
-      margin-bottom: 100px;
+      margin-bottom: 40px;
       font-size: 32px;
     }
 
     input {
       text-align: center;
       width: 40px;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       font-size: 20px;
       height: 30px;
 
@@ -61,10 +61,20 @@
       border-radius: 5%;
       text-transform: uppercase;
     }
-
-    #demo2 {
+    .copy-sty {
+      padding: 10px;
+      margin-bottom: 20px;
       margin-top: 20px;
+      background-color: #07ff5a;;
+      border: solid 1px #07ff5a;
+      border-radius: 5%;
+      text-transform: uppercase;
+    }
+
+    #copy {
+      /* margin-top: 20px; */
       font-size: 25px;
+      
 
     }
 
@@ -90,10 +100,20 @@
         height: auto;
       }
     }
+
+    .sirina{
+
+      width: 333px;
+/* border: solid seagreen 1px; */
+overflow: hidden;
+
+    }
   </style>
 </head>
 
 <body class="section-one">
+
+
 
   <section class="section-two">
     <div>
@@ -102,7 +122,10 @@
       <input type="number" name="izaberi boj karaktera!" id="num" min="4" max="12" value="8">
       <br>
       <button onclick="myFunction()">Generate</button>
-      <p id="demo2">Your password</p>
+      <div class="sirina">
+        <p id="copy">Your password</p>
+      </div>
+      <button class="copy-sty" onclick="copyEvent('copy')">Copy</button>
     </div>
     <div class="power">
       <p class="last">Powered by Sebweb</p>
@@ -128,20 +151,23 @@
 
     function myFunction() {
       var x = document.getElementById("num").value;
-      document.getElementById("demo2").innerText = generirajLozinku(x);
+          document.getElementById("copy").innerText = generirajLozinku(x);
     }
 
- function myFunction() {
+    function myFunction() {
       
       var x = document.getElementById("num").value;
-      if(x > 20){
-        alert('Maximum number of password length is 20');
-      }
-      else{
-        document.getElementById("demo2").innerText = generirajLozinku(x);
+   document.getElementById("copy").innerText = generirajLozinku(x);
       console.log(x);
-      }
+      
      
+    }
+
+    function copyEvent(id)
+    {
+        var str = document.getElementById(id);
+        window.getSelection().selectAllChildren(str);
+        document.execCommand("Copy")
     }
   </script>
 
