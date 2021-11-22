@@ -63,7 +63,7 @@
     }
     .copy-sty {
       padding: 10px;
-      margin-bottom: 40px;
+      /* margin-bottom: 40px; */
       margin-top: 20px;
       background-color: #07ff5a;;
       border: solid 1px #07ff5a;
@@ -74,6 +74,7 @@
     #copy {
       /* margin-top: 20px; */
       font-size: 25px;
+    
       
 
     }
@@ -102,12 +103,29 @@
     }
 
     .sirina{
-
       width: 333px;
 /* border: solid seagreen 1px; */
 overflow: hidden;
-
     }
+
+  .mesagge{
+display: flex;
+justify-content: center;
+    
+opacity:1;
+    transition:opacity 500ms;
+   
+  }
+
+.waa {
+    opacity:0;}
+
+  #area{
+    position:absolute;
+    background-color: rgb(13, 255, 118);
+width: 340px;
+
+  }
   </style>
 </head>
 
@@ -126,6 +144,9 @@ overflow: hidden;
         <p id="copy">Your password</p>
       </div>
       <button class="copy-sty" onclick="copyEvent('copy')">Copy</button>
+      <div id="app" class="mesagge">
+        <p id="area"></p>
+      </div>
     </div>
     <div class="power">
       <p class="last">Powered by Sebweb</p>
@@ -152,23 +173,41 @@ overflow: hidden;
     function myFunction() {
       var x = document.getElementById("num").value;
           document.getElementById("copy").innerText = generirajLozinku(x);
+          document.getElementById("area").innerText = ' '
+          var str2 = document.getElementById('app');
+  str2.classList.remove("waa");
+
     }
 
-    function myFunction() {
+  //   function myFunction() {
       
-      var x = document.getElementById("num").value;
-   document.getElementById("copy").innerText = generirajLozinku(x);
-      console.log(x);
+  //     var x = document.getElementById("num").value;
+  //  document.getElementById("copy").innerText = generirajLozinku(x);
+      
       
      
-    }
+  //   }
 
     function copyEvent(id)
     {
         var str = document.getElementById(id);
         window.getSelection().selectAllChildren(str);
         document.execCommand("Copy")
+          document.getElementById("area").innerText = 'Password copy!!'
+          
+          setTimeout(function(){
+            var str1 = document.getElementById('app');
+  str1.classList.add("waa");
+
+}, 1000);
+
+
+
+
     }
+
+
+
   </script>
 
 </body>
